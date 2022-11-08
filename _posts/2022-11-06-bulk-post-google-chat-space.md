@@ -11,9 +11,11 @@ toc: true
 Note that following configuration can be done only for a Google admin workspace account. Since the configuration is not 
 possible for a normal gmail account, this application cannot be used for to post messages to spaces in a normal gmail account.
 
-This application use incoming webhooks to send messages to google chat
+This application use incoming webhooks to send messages to google chat spaces
 
 https://developers.google.com/chat/how-tos/webhooks
+
+![alt text](../assets/images/2022-11-06-bulk-post-google-chat-space/4.png)
 
 
 ### Prerequisites to setup development environment
