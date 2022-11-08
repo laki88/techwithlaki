@@ -39,3 +39,12 @@ https://developers.google.com/chat/how-tos/webhooks
 1. Download the binaries from release section https://github.com/laki88/gchat-post-message/releases/tag/v1.0.0
 2. Extract and update the chatpost\conf\space_to_webhook.properties as specified above
 3. For windows run the run.bat. For Linux and Mac run the run.sh
+
+When the application run window like below will appear and you need to select spaces, type the message and click the send button.
+
+![alt text](../assets/images/2022-11-06-bulk-post-google-chat-space/5.png)
+
+message should arrive like below
+
+![alt text](../assets/images/2022-11-06-bulk-post-google-chat-space/6.png)
+
