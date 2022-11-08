@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Bulk post messages to google chat spaces"
-author: laki
+author: Laki
 categories: [ google-chat, tutorial, automate, bot ]
 image: assets/images/4.jpg
 beforetoc: "This post shows an open source java client application which can bulk post messages to google chat spaces"
