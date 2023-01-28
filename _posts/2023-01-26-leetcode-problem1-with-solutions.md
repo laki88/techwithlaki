@@ -3,7 +3,7 @@ layout: post
 title:  "Leetcode problem 1 - Two Sum | Problem and solution"
 author: Laki
 categories: [ leetcode, algorithm ]
-image: assets/images/4.jpg
+image: assets/images/2023-01-26-leetcode-problem1-with-solutions/leetcode_meme1.png
 beforetoc: "This post shows the problem statement and several solutions for leetcode two sum problem"
 toc: false
 ---
