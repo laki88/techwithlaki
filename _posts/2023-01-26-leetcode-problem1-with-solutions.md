@@ -5,7 +5,7 @@ author: Laki
 categories: [ leetcode, algorithm ]
 image: assets/images/4.jpg
 beforetoc: "This post shows the problem statement and several solutions for leetcode two sum problem"
-toc: true
+toc: false
 ---
 
 # Two Sum
