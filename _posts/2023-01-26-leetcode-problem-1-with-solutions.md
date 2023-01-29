@@ -2,7 +2,7 @@
 layout: post
 title:  "Leetcode problem 1 - Two Sum | Problem and solution"
 author: Laki
-categories: [ leetcode, algorithm ]
+categories: [ leetcode, algorithm, interview questions ]
 image: assets/images/2023-01-26-leetcode-problem1-with-solutions/leetcode_meme1.png
 beforetoc: "This post shows the problem statement and several solutions for leetcode two sum problem"
 toc: false
@@ -115,7 +115,7 @@ Java Code :
 * Space Complexity : O(n)
 * Time Complexity : O(n * log(n))
 
-2. using Hashmap
+2. Using Hashmap
     1. Iterate the array and keep the (target - value) as the key  and index as the value in hashmap, if the hashmap doesn't have a value for current index
     2. If the hashmap has a value for current index, that means the index at the current value and index from hashmap is the solution.
 
