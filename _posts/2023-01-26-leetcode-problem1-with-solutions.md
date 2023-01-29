@@ -73,6 +73,43 @@ Java Code :
     2. sort the second array based on values
     3. keep two pointers at two ends of the second array
     4. move the pointer towered each other until the sum of values pointed become equal to target
+
+``` java
+    public int[] twoSum(int[] nums, int target) {
+        Pair[] paired = new Pair[nums.length]; // This will hold the value and index pair of input array
+        int[] result =  new int[2];
+        for (int i = 0; i < nums.length;i++) {
+            paired[i] = new Pair(nums[i], i);
+        }
+
+        Arrays.sort(paired, Comparator.comparingInt(o -> o.value)); // Sort the array based on value
+
+        int p1 = 0, p2 = paired.length - 1;
+
+        while (p1 < p2) {
+            int sum  = paired[p1].value + paired[p2].value;
+            if (sum == target) {
+                result[0] = paired[p1].index;
+                result[1] = paired[p2].index;
+                return result;
+            } else if (sum < target) {
+                p1++;
+            } else {
+                p2--;
+            }
+        }
+        return null;
+    }
+
+    class Pair {
+        int value;
+        int index;
+        Pair(int value, int index) {
+            this.value = value;
+            this.index = index;
+        }
+    }
+```
 ### <ins> Complexity analysis </ins>
 
 * Space Complexity : O(n)
@@ -81,6 +118,24 @@ Java Code :
 2. using Hashmap
     1. iterate the array and keep the (target - value) as the key  and index as the value in hashmap.
     2. if the hashmap has a value for current index, that means the index at the current value and index from hashmap is the solution.
+
+``` java
+   public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> tracker = new HashMap<>();
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if (tracker.get(nums[i]) != null) {
+                result[0] = i;
+                result[1] = tracker.get(nums[i]);
+                return result;
+            } else {
+                tracker.put(target - nums[i], i);
+            }
+
+        }
+        return result;
+    }
+```
 ### <ins> Complexity analysis </ins>
 
 * Space Complexity : O(n)
