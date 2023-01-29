@@ -65,14 +65,14 @@ Java Code :
 * Space Complexity : O(1)
 * Time Complexity : O(n<sup>2</sup>)
 
-## More solutions
+## Better solutions
 
 1. Using two pointers
     
-    1. Copy the values from original array to second array and store a data structure that holds the value and indices from original array in each indices
-    2. sort the second array based on values
-    3. keep two pointers at two ends of the second array
-    4. move the pointer towered each other until the sum of values pointed become equal to target
+    1. Copy the values from original array to second array and store a data structure that holds the value, index pair from original array in second array.
+    2. Sort the second array based on values
+    3. Keep two pointers at two ends of the second array
+    4. Move the pointers towards each other until the sum of values pointed become equal to target
 
 ``` java
     public int[] twoSum(int[] nums, int target) {
@@ -116,8 +116,8 @@ Java Code :
 * Time Complexity : O(n * log(n))
 
 2. using Hashmap
-    1. iterate the array and keep the (target - value) as the key  and index as the value in hashmap.
-    2. if the hashmap has a value for current index, that means the index at the current value and index from hashmap is the solution.
+    1. Iterate the array and keep the (target - value) as the key  and index as the value in hashmap, if the hashmap doesn't have a value for current index
+    2. If the hashmap has a value for current index, that means the index at the current value and index from hashmap is the solution.
 
 ``` java
    public int[] twoSum(int[] nums, int target) {
