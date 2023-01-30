@@ -3,7 +3,7 @@ layout: post
 title:  "Leetcode problem 2 - Add Two Numbers | Problem and solution"
 author: Laki
 categories: [ leetcode, algorithm, linked list, interview questions ]
-image: assets/images/2023-01-26-leetcode-problem1-with-solutions/leetcode_meme1.png
+image: assets/images/8.jpg
 beforetoc: "This post shows the problem statement and the solution for leetcode Add Two Numbers problem"
 toc: false
 ---
