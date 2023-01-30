@@ -16,7 +16,7 @@ This application use incoming webhooks to send messages to google chat spaces
 
 https://developers.google.com/chat/how-tos/webhooks
 
-![alt text](../assets/images/2022-11-06-bulk-post-google-chat-space/4.png)
+![Chat app implementation diagram](../assets/images/2022-11-06-bulk-post-google-chat-space/4.png)
 
 
 ### Prerequisites to setup development environment
