@@ -15,9 +15,9 @@ group :jekyll_plugins do
     gem 'jekyll-paginate'
     gem 'jekyll-seo-tag'
     gem 'jekyll-archives'
+    gem 'jekyll-tabs'
     gem 'kramdown'
     gem 'rouge'
     gem 'webrick'
     gem "github-pages", "~> 227", group: :jekyll_plugins
-    gem "jekyll-tabs"
 end
