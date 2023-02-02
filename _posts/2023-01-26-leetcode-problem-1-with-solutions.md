@@ -12,41 +12,36 @@ toc: false
 
 ## Description
 
-Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+When an input integer array and a target integer some given, return the indices of two elements from array that adds up to the target integer. Result indices can be in any order.
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-
-You can return the answer in any order.
+It can be assumed that there is no more than one solution to this problem and same element cannot be used twice.
 
 ### Example 1:
 ``` 
-Input: nums = [2,7,11,15], target = 9
-Output: [0,1]
-Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+Input: nums = [3,1,5,6], target = 7
+Output: [1,3]
+Explanation: Because nums[1] + nums[6] == 7, we return [1, 3].
 ```
 ### Example 2:
 ```
-Input: nums = [3,2,4], target = 6
+Input: nums = [5,3,8], target = 11
 Output: [1,2]
+Explanation: Because nums[1] + nums[2] == 11, we return [1,2].
 ```
 ### Example 3:
 ```
-Input: nums = [3,3], target = 6
+Input: nums = [5,4], target = 9
 Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0,1].
 ```
-### Constraints:
-```
-2 <= nums.length <= 104
--109 <= nums[i] <= 109
--109 <= target <= 109
-Only one valid answer exists.
- ```
 
 ## Brute force solution 
 
 Brute force solutions would be to search for all possible pair of numbers so that add up to the target
 
-Java Code : 
+{% tabs two-sum-brute-force %}
+
+{% tab two-sum-brute-force Java %}
 ``` java
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
@@ -60,10 +55,29 @@ Java Code :
         return null;
     }
 ```
+{% endtab %}
+
+{% tab two-sum-brute-force Python %}
+``` Python
+    public int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] + nums[i] == target) {
+                    return new int[] { i, j };
+                }
+            }
+        }
+        // In case there is no solution, we'll just return null
+        return null;
+    }
+```
+{% endtab %}
+
+{% endtabs %}
 ### <ins> Complexity analysis </ins>
 
-* Space Complexity : O(1)
-* Time Complexity : O(n<sup>2</sup>)
+* Space Complexity : Since there is no additional space used space complexity would be constant. O(1)
+* Time Complexity : Since we iterate the array twice time complexity would be O(n<sup>2</sup>)
 
 ## Better solutions
 
@@ -112,8 +126,8 @@ Java Code :
 ```
 ### <ins> Complexity analysis </ins>
 
-* Space Complexity : O(n)
-* Time Complexity : O(n * log(n))
+* Space Complexity : Since we use an additional array that is same length as input array to hold the Pair objects space complexity would be O(n).
+* Time Complexity : Since we have to sort the array, time complexity would be O(n * log(n))
 
 2. Using Hashmap
     1. Iterate the array and keep the (target - value) as the key  and index as the value in hashmap, if the hashmap doesn't have a value for current index
@@ -138,7 +152,7 @@ Java Code :
 ```
 ### <ins> Complexity analysis </ins>
 
-* Space Complexity : O(n)
-* Time Complexity : O(n)
+* Space Complexity : Since a hashmap grows to the same size as input array space complexity would be O(n).
+* Time Complexity : Since we need to iterate the whole input array for one time time comlexity would be O(n).
 
 Please let me know if anything unclear in comment.

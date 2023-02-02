@@ -12,9 +12,7 @@ toc: false
 
 ## Description
 
-You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
-
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+When two numbers are represented in two non-empty linked lists, You need to add those two numbers and return the result linked list. Each node holds a single digits in the numbers and digits are stored in reverse order. It can be assumed that there is no leading zeros, except number zero case.
 
 ### Example 1:
 ![Adding numbers in two linked lists](../assets/images/2023-01-29-leetcode-problem-2-with-solutions/addtwonumber1.jpg)
@@ -33,12 +31,8 @@ Output: [0]
 ```
 Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
- ```
-### Constraints:
 ```
-The number of nodes in each linked list is in the range [1, 100].
-0 <= Node.val <= 9
-It is guaranteed that the list represents a number that does not have leading zeros.
+
 ```
 ## Solution
 ```java

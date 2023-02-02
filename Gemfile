@@ -19,4 +19,5 @@ group :jekyll_plugins do
     gem 'rouge'
     gem 'webrick'
     gem "github-pages", "~> 227", group: :jekyll_plugins
+    gem "jekyll-tabs"
 end
