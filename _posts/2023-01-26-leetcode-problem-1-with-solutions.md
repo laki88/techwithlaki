@@ -39,7 +39,7 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0,1].
 
 Brute force solutions would be to search for all possible pair of numbers so that add up to the target
 
-
+{% tabs two-sum-brute-force %}
 
 {% tab two-sum-brute-force Java %}
 ``` java
@@ -73,6 +73,7 @@ Brute force solutions would be to search for all possible pair of numbers so tha
 ```
 {% endtab %}
 
+{% endtabs %}
 
 ### <ins> Complexity analysis </ins>
 
