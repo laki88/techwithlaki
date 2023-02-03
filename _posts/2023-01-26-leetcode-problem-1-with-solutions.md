@@ -39,9 +39,7 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0,1].
 
 Brute force solutions would be to search for all possible pair of numbers so that add up to the target
 
-{% tabs two-sum-brute-force %}
-
-{% tab two-sum-brute-force Java %}
+Java Code: 
 ``` java
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
@@ -55,25 +53,7 @@ Brute force solutions would be to search for all possible pair of numbers so tha
         return null;
     }
 ```
-{% endtab %}
 
-{% tab two-sum-brute-force Python %}
-``` Python
-    public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] + nums[i] == target) {
-                    return new int[] { i, j };
-                }
-            }
-        }
-        // In case there is no solution, we'll just return null
-        return null;
-    }
-```
-{% endtab %}
-
-{% endtabs %}
 
 ### <ins> Complexity analysis </ins>
 
