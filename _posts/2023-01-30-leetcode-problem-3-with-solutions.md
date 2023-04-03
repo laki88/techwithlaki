@@ -3,7 +3,7 @@ layout: post
 title:  "Leetcode problem 3 - Longest Substring Without Repeating Characters | Problem and solution"
 author: Laki
 categories: [ leetcode, algorithm, interview questions ]
-image: assets/images/2023-01-26-leetcode-problem1-with-solutions/leetcode_meme1.png
+image: assets/images/2023-01-30-leetcode-problem-3-with-solutions/longest_substring_without_repeating_characters.jpg
 beforetoc: "This post shows the problem statement and several solutions for leetcode Longest Substring Without Repeating Characters problem"
 toc: false
 ---
