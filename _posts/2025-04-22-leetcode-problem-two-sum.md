@@ -136,4 +136,15 @@ Java Code:
 * Space Complexity : Since a hashmap grows to the same size as input array space complexity would be O(n).
 * Time Complexity : Since we need to iterate the whole input array for one time time comlexity would be O(n).
 
+
+## Strategy Comparison
+
+  
+| Approach     | Time Complexity | Space Complexity | When to Use                     |
+| ------------ | --------------- | ---------------- | ------------------------------- |
+| Brute‑Force  | O(n²)           | O(1)             | Learning exercise, very small n |
+| Two‑Pointer  | O(n log n)      | O(n)             | When sorting is acceptable      |
+| Hash‑Map     | O(n)            | O(n)             | Default “go‑to” for general use |
+
+
 Please let me know if anything unclear in comment.
