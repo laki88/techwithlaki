@@ -139,12 +139,10 @@ Java Code:
 
 ## Strategy Comparison
 
-  
-| Approach     | Time Complexity | Space Complexity | When to Use                     |
-| ------------ | --------------- | ---------------- | ------------------------------- |
-| Brute‑Force  | O(n²)           | O(1)             | Learning exercise, very small n |
-| Two‑Pointer  | O(n log n)      | O(n)             | When sorting is acceptable      |
-| Hash‑Map     | O(n)            | O(n)             | Default “go‑to” for general use |
+| Approach    | Time Complexity | Space Complexity | When to Use                     |
+|-------------|------------------|-------------------|----------------------------------|
+| Brute-Force | O(n²)            | O(1)              | Learning exercise, very small n |
+| Two-Pointer | O(n log n)       | O(n)              | When sorting is acceptable      |
+| Hash-Map    | O(n)             | O(n)              | Default “go-to” for general use |
 
-
-Please let me know if anything unclear in comment.
+Got another approach? Drop it in the comments!
