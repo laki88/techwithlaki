@@ -62,7 +62,7 @@ Java Code:
 
 ## Better solutions
 
-1. Using two pointers
+### 1. Using two pointers
     
     1. Copy the values from original array to second array and store a data structure that holds the value, index pair from original array in second array.
     2. Sort the second array based on values
@@ -110,7 +110,7 @@ Java Code:
 * Space Complexity : Since we use an additional array that is same length as input array to hold the Pair objects space complexity would be O(n).
 * Time Complexity : Since we have to sort the array, time complexity would be O(n * log(n))
 
-2. Using Hashmap
+### 2. Using Hashmap
     1. Iterate the array and keep the (target - value) as the key  and index as the value in hashmap, if the hashmap doesn't have a value for current index
     2. If the hashmap has a value for current index, that means the index at the current value and index from hashmap is the solution.
 
