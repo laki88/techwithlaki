@@ -12,26 +12,52 @@ toc: false
 
 ## Description
 
-When two numbers are represented in two non-empty linked lists, You need to add those two numbers and return the result linked list. Each node holds a single digits in the numbers and digits are stored in reverse order. It can be assumed that there is no leading zeros, except number zero case.
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each node contains a single digit. Your task is to add these two numbers and return the sum as a linked list in the same reverse order format.
+
+### Key Points:
+- Each linked list represents a number in reverse digit order
+- No leading zeros, except for the number 0 itself
+- The solution should return a new linked list representing the sum
+
 
 ### Example 1:
 ![Adding numbers in two linked lists](../assets/images/2023-01-29-leetcode-problem-2-with-solutions/addtwonumber1.jpg)
 
-```
-Input: l1 = [2,4,3], l2 = [5,6,4]
-Output: [7,0,8]
-Explanation: 342 + 465 = 807.
-```
+**Input:**  
+`l1 = [2,4,3]` (represents 342)  
+`l2 = [5,6,4]` (represents 465)  
+
+**Output:** `[7,0,8]` (represents 807)  
+**Explanation:** 342 + 465 = 807
+
+
 ### Example 2:
-```
-Input: l1 = [0], l2 = [0]
-Output: [0]
-```
+**Input:**  
+`l1 = [0]`  
+`l2 = [0]`  
+
+**Output:** `[0]`
+
 ### Example 3:
-```
-Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-Output: [8,9,9,9,0,0,0,1]
-```
+**Input:**  
+`l1 = [9,9,9,9,9,9,9]` (represents 9,999,999)  
+`l2 = [9,9,9,9]` (represents 9,999)  
+
+**Output:** `[8,9,9,9,0,0,0,1]` (represents 10,009,998)
+
+## Solution Approach
+
+The solution uses a straightforward approach to simulate digit-by-digit addition, handling the carry at each step. Here's the breakdown:
+
+1. **Initialize** a dummy head for the result linked list and a carry variable
+2. **Iterate** through both lists simultaneously:
+   - Take the current digits from both lists (or 0 if list is exhausted)
+   - Calculate the sum of digits plus any carry from previous step
+   - Determine the new digit and new carry
+   - Create a new node with the calculated digit
+3. **Continue** until both lists are fully processed and no carry remains
+4. **Return** the result list (starting from dummy head's next node)
+
 
 ## Solution 
 ```java
@@ -63,4 +89,21 @@ class ListNode {
       ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
 ```
+
+## Complexity Analysis
+- Time Complexity: O(max(m,n))
+Where m and n are the lengths of the two linked lists. We process each node exactly once.
+
+- Space Complexity: O(max(m,n))
+The length of the new list is at most max(m,n) + 1 (for potential carry).
+
+## Edge Cases Considered
+- Lists of unequal length (e.g., Example 3)
+
+- Final carry that requires an additional node (e.g., 5 + 5 = 10)
+
+- One or both lists containing only zero
+
+- Lists with multiple carry operations
+
 Please let me know if anything unclear in comment.
