@@ -139,31 +139,35 @@ Java Code:
 
 ## Strategy Comparison
 
-<table>
-  <tr>
-    <th>Approach</th>
-    <th>Time Complexity</th>
-    <th>Space Complexity</th>
-    <th>When to Use</th>
-  </tr>
-  <tr>
-    <td>Brute-Force</td>
-    <td>O(n²)</td>
-    <td>O(1)</td>
-    <td>Learning exercise, very small n</td>
-  </tr>
-  <tr>
-    <td>Two-Pointer</td>
-    <td>O(n log n)</td>
-    <td>O(n)</td>
-    <td>When sorting is acceptable</td>
-  </tr>
-  <tr>
-    <td>Hash-Map</td>
-    <td>O(n)</td>
-    <td>O(n)</td>
-    <td>Default “go-to” for general use</td>
-  </tr>
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Approach</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Time Complexity</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Space Complexity</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">When to Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Brute-Force</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">O(n²)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">O(1)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Learning exercise, very small n</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Two-Pointer</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">O(n log n)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">O(n)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">When sorting is acceptable</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;">Hash-Map</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">O(n)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">O(n)</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">Default “go-to” for general use</td>
+    </tr>
+  </tbody>
 </table>
 
 Got another approach? Drop it in the comments!
