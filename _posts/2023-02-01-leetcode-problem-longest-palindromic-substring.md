@@ -151,7 +151,7 @@ Time Complexity: O(n²) - Each expansion takes O(n) time for O(n) centers.
 
 Space Complexity: O(1) - No extra space used.
 
-Approach 3: Dynamic Programming
+### Approach 3: Dynamic Programming
 Using dynamic programming to store subproblem results and avoid redundant checks.
 
 Algorithm:
@@ -200,7 +200,7 @@ Time Complexity: O(n²) - Filling the DP table.
 
 Space Complexity: O(n²) - Storing the DP table.
 
-Approach 4: Manacher's Algorithm
+### Approach 4: Manacher's Algorithm
 An optimized algorithm to find the longest palindromic substring in linear time.
 
 Algorithm:
@@ -269,7 +269,7 @@ Time Complexity: O(n) - Linear time due to efficient expansions.
 
 Space Complexity: O(n) - Transformed string and DP array.
 
-Approach 5: Recursive (Time Limit Exceeded)
+### Approach 5: Recursive (Time Limit Exceeded)
 A highly inefficient recursive approach for educational purposes.
 
 Algorithm:
