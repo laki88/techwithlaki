@@ -39,7 +39,7 @@ Let’s explore both.
 
 ---
 
-## 1. Brute Force Approach (Simple but Inefficient)
+### 1. Brute Force Approach (Simple but Inefficient)
 
 We try every possible pair of lines and compute the area between them.
 
@@ -63,7 +63,7 @@ class Solution {
 
 This approach works but is too slow for large input sizes.
 
-2. Optimized Approach (Two Pointers)
+### 2. Optimized Approach (Two Pointers)
 Instead of trying all pairs, we can be smarter:
 
 Start with two pointers, one at the beginning and one at the end.
