@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "Leetcode problem 14 - Longest Common Prefix | Problem and solution"
+title:  "Leetcode problem 15 - 3Sum | Problem and solution"
 author: Laki
 categories: [ leetcode, algorithm, interview questions ]
 image: assets/images/2023-01-26-leetcode-problem1-with-solutions/leetcode_meme1.png
-beforetoc: "This post shows the problem statement and several solutions for leetcode Longest Common Prefix problem"
+beforetoc: "This post shows the problem statement and several solutions for leetcode 3Sum problem"
 toc: false
 ---
 
-# [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix)
+# [3Sum](https://leetcode.com/problems/3sum/)
 
 ## Description
 
