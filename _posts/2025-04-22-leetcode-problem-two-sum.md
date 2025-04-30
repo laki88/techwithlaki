@@ -134,6 +134,7 @@ class Solution {
 
 
 **Time Complexity**: O(n log n) – Sorting takes O(n log n), and the two-pointer traversal is O(n).
+
 **Space Complexity**: O(n) – Extra space is needed for the array of pairs.  
 
 **When to use**:Use when sorting is okay and you’re comfortable with extra space. It’s faster than brute force but not as efficient as the next method.
@@ -183,9 +184,9 @@ class Solution {
 
 - **Correctness**: The code efficiently finds the pair using a hash map and handles the “no solution” case.
 - **Edge Cases**: Properly handles duplicates (since we add to the map after checking) and valid inputs per LeetCode’s constraints.
-- **Improvement**: This is the standard, optimized implementation. The original article’s code wasn’t provided, but this version is robust and clear.
 
 **Time Complexity**: O(n) – One pass through the list, with O(1) average-time hash map operations.
+
 **Space Complexity**: O(n) – The hash map may store up to n entries.  
 
 #### When to use:
