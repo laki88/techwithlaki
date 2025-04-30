@@ -46,10 +46,47 @@ Below are the four approaches to solve this problem, each explained in a way tha
 
 **Space Complexity**: O(n)
 
-#### Explanation:
-Picture yourself as a librarian checking every possible combination of books (substrings) on a shelf (the string) to find the longest set with no duplicate titles (characters). For each starting book, you check every possible ending book, ensuring all titles in between are unique. If they are, you note the length of that set and keep track of the longest one found.
+### Explanation:
 
-This approach is simple but slow because you’re checking every possible combination, which grows rapidly for long strings. It’s like opening every box in a warehouse to find the biggest unique collection—exhaustive and time-consuming!
+**What it does**: Check every possible part of the word to see if all its characters are unique. Keep track of the longest part that works.
+
+**How it works**:
+
+1. Start at each character in the word.
+
+2. For each starting point, look at parts that end at every character after it.
+
+3. For each part, check if all characters are unique by keeping a list of seen characters.
+
+4. If the part has all unique characters, compare its length to the longest you’ve found.
+
+5. Repeat for all starting points.
+
+**Example with "abcabcbb":**
+
+- Start at "a":
+
+  - Part "a": Unique, length 1.
+ 
+  - Part "ab": Unique, length 2.
+
+  - Part "abc": Unique, length 3.
+
+  - Part "abca": "a" repeats, not unique.
+
+- Start at "b":
+
+  - Part "b": Unique, length 1.
+
+  - Part "bc": Unique, length 2.
+
+  - Part "bca": Unique, length 3.
+
+- Continue for all starting points.
+
+- Longest part is "abc" (or "bca"), length 3.
+
+**Speed**: Slow, because it checks every possible part. For a word with (n) characters, it takes about (n^3) steps.
 
 
 #### Solution Code in Java
@@ -92,10 +129,41 @@ public int bruteForce(String s) {
 
 **Space Complexity**: O(k) (k ≤ 26 for letters)
 
-#### Explanation:
-Imagine you’re fishing in a river (the string) with two nets: a "left" net and a "right" net, defining your fishing area (window). You start with both nets at the river’s start. As you move the "right" net forward to catch more fish (characters), you keep track of them in a basket (HashSet), which only holds unique fish.
+### Explanation:
 
-If you catch a fish you already have, you move the "left" net forward, releasing fish until the duplicate is gone. Each time you move the "right" net, you check if your current fishing area is the largest unique catch so far. This method is fast because each fish is caught and released at most once, making it efficient for long rivers!
+**What it does**: Use two pointers to create a "window" of characters. Expand the window by adding new characters. If you find a repeat, shrink the window until the repeat is gone.
+
+**How it works**:
+
+1. Use two pointers: "left" and "right", both starting at the beginning.
+
+2. Use a set to keep track of characters in the current window.
+
+3. Move "right" to add a new character:
+
+   - If the character isn’t in the set, add it and check if the window is the longest so far.
+
+   - If the character is in the set, move "left" forward, removing characters until the repeat is gone.
+
+4. Repeat until "right" reaches the end.
+
+**Example with "abcabcbb":**
+
+- Left = 0, Right = 0, Set = {}.
+
+- Right = 0: Add "a". Set = {"a"}. Window = "a", length 1.
+
+- Right = 1: Add "b". Set = {"a", "b"}. Window = "ab", length 2.
+
+- Right = 2: Add "c". Set = {"a", "b", "c"}. Window = "abc", length 3.
+
+- Right = 3: "a" is in set. Remove "a" (left = 1). Set = {"b", "c"}. Add "a". Window = "bca", length 3.
+
+- Continue until right reaches the end.
+
+- Longest length is 3.
+
+**Speed**: Fast, takes about (n) steps, as each character is added and removed at most once.
 
 #### Solution Code in Java
 
@@ -119,10 +187,42 @@ public int slidingWindow(String s) {
 **Time Complexity**: O(n)
 **Space Complexity**: O(k) (k is the size of the character set)
 
-#### Explanation:
-This is like the fishing analogy, but instead of a basket, you use a logbook (HashMap) to note the exact spot (index) where you last caught each fish. When you catch a duplicate fish, you check your logbook and move the "left" net directly to just past where you caught that fish last time. This saves time by skipping over unnecessary fish.
+### Explanation:
+**What it does**: Like the HashSet method, but uses a map to store the last position of each character, so you can jump directly to where a repeat was last seen.
 
-Each time you move the "right" net, you update the logbook with the fish’s new position and check if your current fishing area is the longest unique catch. This approach is as fast as the HashSet method but can be smarter with duplicates, especially in strings with many repeated characters.
+**How it works**:
+
+1. Use two pointers: "left" and "right", starting at the beginning.
+
+2. Use a map to store each character and its most recent position.
+
+3. Move "right" to add a new character:
+
+    - If the character is in the map and its last position is at or after "left", move "left" to just past that position.
+
+    - Update the character’s position in the map.
+
+4. Check if the current window is the longest so far.
+
+5. Repeat until "right" reaches the end.
+
+**Example with "abcabcbb":**
+
+- Left = 0, Right = 0, Map = {}.
+
+- Right = 0: Add "a" at 0. Map = {"a": 0}. Window = "a", length 1.
+
+- Right = 1: Add "b" at 1. Map = {"a": 0, "b": 1}. Window = "ab", length 2.
+
+- Right = 2: Add "c" at 2. Map = {"a": 0, "b": 1, "c": 2}. Window = "abc", length 3.
+
+- Right = 3: "a" is in map at 0. Move left to 1. Map = {"a": 3, "b": 1, "c": 2}. Window = "bca", length 3.
+
+- Continue until right reaches the end.
+
+Longest length is 3.
+
+**Speed**: Also takes about (n) steps, slightly faster than HashSet for strings with many repeats.
 
 #### Solution Code in Java
 ```java
@@ -148,10 +248,43 @@ public int optimizedWindow(String s) {
 
 **Space Complexity**: O(1)
 
-#### Explanation:
-Now, imagine you’re fishing in a river where only 128 types of fish (ASCII characters) exist. Instead of a basket or logbook, you use a fixed chart with 128 slots, one for each fish type, to mark the last spot you caught each one. When you catch a fish, you check its slot. If it’s been caught before, you move the "left" net to just past that spot.
+### Explanation:
 
-This chart never grows beyond 128 slots, so it uses constant space, making it super efficient for strings with standard keyboard characters. It’s like having a perfect, compact map for your fishing adventure, ideal for competitive scenarios!
+**What it does**: Like the HashMap method, but uses a fixed-size array for ASCII characters, which is very efficient for standard keyboard characters.
+
+**How it works**:
+
+1. Use two pointers: "left" and "right", starting at the beginning.
+
+2. Use an array of size 128 (for ASCII characters) to store the last position of each character.
+
+3. Move "right" to add a new character:
+
+    - If the character has a position in the array, move "left" to just past that position.
+
+    - Update the character’s position in the array.
+
+4. Check if the current window is the longest so far.
+
+5. Repeat until "right" reaches the end.
+
+**Example with "abcabcbb":**
+
+- Left = 0, Right = 0, Array = [-1] * 128.
+
+- Right = 0: "a" (ASCII 97) at 0. Array[97] = 0. Window = "a", length 1.
+
+- Right = 1: "b" (ASCII 98) at 1. Array[98] = 1. Window = "ab", length 2.
+
+- Right = 2: "c" (ASCII 99) at 2. Array[99] = 2. Window = "abc", length 3.
+
+- Right = 3: "a" at 0. Move left to 1. Array[97] = 3. Window = "bca", length 3.
+
+- Continue until right reaches the end.
+
+- Longest length is 3.
+
+**Speed**: Takes about (n) steps, with constant space for ASCII characters.
 
 #### Solution Code in Java
 ```java
