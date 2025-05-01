@@ -191,15 +191,15 @@ public class Solution {
 
 **How it Works:**
 
-- Create a 2D table dp where dp[i][j] is true if the substring from index i to j is a palindrome.
+- Create a 2D table dp where `dp[i][j]` is true if the substring from index `i` to `j` is a palindrome.
 
-- Base cases: Single characters (i == j) are palindromes, and two identical characters (s[i] == s[i+1]) are palindromes.
+- Base cases: Single characters (`i == j`) are palindromes, and two identical characters (`s[i] == s[i+1]`) are palindromes.
 
-- For longer substrings, dp[i][j] is true if:
+- For longer substrings, `dp[i][j]` is true if:
 
-    - s[i] == s[j] (first and last characters match), and
+    - `s[i] == s[j]` (first and last characters match), and
 
-    - dp[i+1][j-1] is true (the substring between is a palindrome).
+    - `dp[i+1][j-1]` is true (the substring between is a palindrome).
 
 - Fill the table for all substring lengths, from 1 to n.
 
@@ -240,9 +240,9 @@ public class Solution {
 
 - Example: For "babad":
 
-    - dp[0][0] = true ("b").
+    - `dp[0][0]` = true ("b").
 
-    - dp[1][3] = true ("aba"), since s[1] == s[3] and dp[2][2] is true.
+    - `dp[1][3]` = true ("aba"), since `s[1] == s[3]` and `dp[2][2]` is true.
 
 - **Time Complexity**: O(n^2)
 
@@ -254,9 +254,9 @@ public class Solution {
 
 **How it Works:**
 
-- Preprocess the string by inserting special characters (e.g., "#" between characters) to handle even-length palindromes (e.g., "babad" becomes "b#a#b#a#d").
+- Preprocess the string by inserting special characters (e.g., "#" between characters) to handle even-length palindromes (e.g., `babad` becomes `b#a#b#a#d`).
 
-- Use an array P where P[i] stores the radius of the palindrome centered at position i.
+- Use an array P where `P[i]` stores the radius of the palindrome centered at position `i`.
 
 - Leverage previously computed P values to compute new ones quickly, avoiding redundant checks.
 
@@ -320,7 +320,7 @@ public class Solution {
 
 - Cons: More complex to understand and implement.
 
-- Example: For "babad", the algorithm computes palindrome radii for each position in the preprocessed string, identifying "bab" or "aba" as the longest.
+- Example: For `babad`, the algorithm computes palindrome radii for each position in the preprocessed string, identifying `bab` or `aba` as the longest.
 
 - **Time Complexity**: O(n)
 
@@ -332,11 +332,11 @@ public class Solution {
 
 **How it Works:**
 
-- For each starting index i, recursively check all substrings starting at i.
+- For each starting index `i`, recursively check all substrings starting at `i`.
 
 - Base case: A single character is a palindrome.
 
-- Recursive case: A substring from i to j is a palindrome if s[i] == s[j] and the substring from i+1 to j-1 is a palindrome.
+- Recursive case: A substring from `i` to `j` is a palindrome if `s[i] == s[j]` and the substring from `i+1` to `j-1` is a palindrome.
 
 Java Code:
 
@@ -422,6 +422,6 @@ The "Longest Palindromic Substring" problem is a fascinating challenge that test
   </tbody>
 </table>
 
-
+</br>
 
 For most cases, the `Expand Around Center` approach is a great balance of simplicity and performance. If you’re working with very long strings, `Manacher’s Algorithm` is the go-to for its linear time complexity. The `Brute Force` and `Recursive` approaches are too slow for practical use but help build understanding.
