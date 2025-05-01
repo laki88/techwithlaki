@@ -12,7 +12,7 @@ toc: false
 
 ## Problem Description
 
-Imagine you're a treasure hunter exploring a string, searching for the longest sequence of unique characters. Your mission? Find the longest stretch where no character repeats. For example, in "abcabcbb0", the treasure is "abc"—a sequence of 3 unique characters. Can you write a program to uncover this for any string?
+Imagine you're a treasure hunter exploring a string, searching for the longest sequence of unique characters. Your mission? Find the longest stretch where no character repeats. For example, in "abcabcbb", the treasure is "abc"—a sequence of 3 unique characters. Can you write a program to uncover this for any string?
 
 ### Examples
 
@@ -36,7 +36,7 @@ Imagine you're a treasure hunter exploring a string, searching for the longest s
 
 ## Solution Approaches
 
-Below are the four approaches to solve this problem, each explained in a way that’s easy to understand, even for beginners. We’ll use analogies to make the concepts stick!
+Below are the four approaches to solve this problem, each explained in a way that’s easy to understand, even for beginners.
 
 ### 1. Brute Force
 
@@ -218,7 +218,7 @@ public int slidingWindow(String s) {
 
 - Continue until right reaches the end.
 
-Longest length is 3.
+- Longest length is 3.
 
 **Speed**: Also takes about (n) steps, slightly faster than HashSet for strings with many repeats.
 
@@ -341,6 +341,7 @@ public int asciiSolution(String s) {
     </tr>
   </tbody>
 </table>
+
 
 #### Applications
 
