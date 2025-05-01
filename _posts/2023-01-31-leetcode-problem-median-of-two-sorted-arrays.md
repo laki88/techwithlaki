@@ -8,13 +8,11 @@ beforetoc: "This post shows the problem statement and several solutions for leet
 toc: false
 ---
 
-# [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+### [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
 ## Description
 
-Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
-
-The overall run time complexity should be O(log (m+n)).
+Picture yourself as a data analyst tasked with a puzzle: you have two lists of numbers, each already sorted in ascending order. Your goal is to find the median of all numbers as if you combined these lists into one. The catch? Merging and sorting would be too slow for large datasets. You need a clever method that runs in 𝑂(log(𝑚+𝑛)) time, where 𝑚 and 𝑛 are the sizes of the arrays. This isn’t just a coding exercise—it’s a challenge to think efficiently, like optimizing a massive database query!
 
 ### Example 1:
 ```
@@ -32,14 +30,37 @@ Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
 ```
 nums1.length == m
 nums2.length == n
-0 <= m <= 1000
-0 <= n <= 1000
+0 <= m,n <= 1000
 1 <= m + n <= 2000
 -106 <= nums1[i], nums2[i] <= 106
 ```
 
 ### Approach 1: Merge and Sort
-This straightforward method merges both arrays into one, sorts it, and computes the median. While simple, it’s inefficient for large datasets due to its higher time complexity.
+Imagine you have two neatly stacked decks of cards (each already sorted), and you simply pour them into one big pile, shuffle them back into order, and then pick out the middle card(s). That’s exactly what this method does—but with numbers instead of playing cards.
+
+#### 1. Combine both arrays
+We allocate a new array large enough to hold every element from nums1 and nums2, then copy each array’s contents in sequence.
+
+#### 2. Sort the combined array
+Using Java’s built-in Arrays.sort(), we reorder the entire list from smallest to largest in one go.
+
+#### 3. Pick the median
+
+ - If the total count is odd, the median is the single middle element.
+
+- If it’s even, it’s the average of the two center elements.
+
+**Why it’s so straightforward**
+
+- You leverage well-tested library code (System.arraycopy + Arrays.sort) and avoid any tricky index math.
+
+- The logic is crystal clear: merge, sort, then grab the center.
+
+**Drawbacks for large datasets**
+
+- **Time Complexity**: O((m + n) log(m + n)) — sorting dominates, so doubling the data more than doubles the work.
+
+- **Space Complexity**: O(m + n) — you need extra memory to hold the merged array
 
 ```java
 import java.util.Arrays;
@@ -59,16 +80,31 @@ public class Solution {
     }
 }
 ```
-Explanation:
 
-Merge: Combine nums1 and nums2 into a new array.
+### Approach 2: Two-Pointer Method
+Imagine you’re riffle-shuffling two sorted stacks of cards—but instead of fully melding them together, you only reveal cards one by one until you hit the middle. That’s the essence of the two-pointer method: we “merge” just enough to find the median without ever building a giant new array.
 
-Sort: Use Arrays.sort() to order the merged array.
+1. Set up your pointers
 
-Median: Determine based on the merged array’s length (even or odd).
+    - `i` scans through `nums1`, and `j` scans through `nums2`.
 
-Approach 2: Two-Pointer Method
-Efficiently traverse both sorted arrays using two pointers to track median elements without fully merging them.
+    - `current` holds the latest card (element) you’ve seen; `prev` remembers the one just before it.
+
+2. Walk step-by-step
+
+    - Loop from count = 0 up to total / 2 (inclusive).
+
+    - At each step, compare `nums1[i]` and `nums2[j]` (if both are still available).
+
+    - Whichever is smaller becomes your new current.
+
+    - Advance that array’s pointer (i++ or j++), and shift the old current into prev.
+
+3. Extract the median
+
+    - If the combined length is odd, the last current you saw is the middle card.
+
+    - If it’s even, take the average of prev and current—those are the two center cards.
 
 Java Code:
 
@@ -79,28 +115,43 @@ public class Solution {
         int total = m + n;
         int i = 0, j = 0, prev = 0, current = 0;
         
-        for (int count = 0; count <= total / 2; count++) {
+         for (int count = 0; count <= total / 2; count++) {
             prev = current;
-            if (i < m && (j >= n || nums1[i] < nums2[j])) {
+
+            // 1) If nums1 is exhausted, take from nums2
+            if (i >= m) {
+                current = nums2[j++];
+            }
+            // 2) Else if nums2 is exhausted, take from nums1
+            else if (j >= n) {
                 current = nums1[i++];
-            } else {
+            }
+            // 3) Else pick the smaller head element
+            else if (nums1[i] < nums2[j]) {
+                current = nums1[i++];
+            } 
+            // 4) Otherwise take from nums2
+            else {
                 current = nums2[j++];
             }
         }
-        
         return (total % 2 == 0) ? (prev + current) / 2.0 : current;
     }
 }
 ```
-Explanation:
+#### Why this is slick
+- Time: O(m + n). You only walk through half the elements at most, without an expensive sort.
 
-Pointers: i and j traverse nums1 and nums2, respectively.
+- Space: O(1). No extra arrays—just a couple of integer pointers and temps.
 
-Track Elements: Collect elements until reaching the median position(s).
+- Intuition: You’re doing a partial merge; think “peek at the top of each deck and draw the lower card” until you see the middle.
 
-Compute Median: Use the last two tracked values for even-length cases.
+#### When to choose this
+- Perfect for moderately large lists where full sorting is overkill.
 
-Approach 3: Binary Search (Optimal)
+- Simple to implement once you wrap your head around maintaining two pointers.
+
+### Approach 3: Binary Search (Optimal)
 Leverage binary search on the smaller array to partition both arrays such that the median is found in logarithmic time.
 
 Java Code:
@@ -140,21 +191,21 @@ public class Solution {
     }
 }
 ```
-Explanation:
+### Explanation:
 
-Partitioning: Split the smaller array (nums1) and derive the partition for nums2 automatically.
+- Partitioning: Split the smaller array (nums1) and derive the partition for nums2 automatically.
 
-Edge Handling: Use MIN_VALUE and MAX_VALUE to manage partitions at array boundaries.
+- Edge Handling: Use MIN_VALUE and MAX_VALUE to manage partitions at array boundaries.
 
-Validation: Check if the partitions are valid (left elements ≤ right elements).
+- Validation: Check if the partitions are valid (left elements ≤ right elements).
 
-Median Calculation: Use partition values to derive the median without merging arrays.
+- Median Calculation: Use partition values to derive the median without merging arrays.
 
-Conclusion
-Brute Force (Approach 1): Simple but inefficient—use for small datasets.
+### Conclusion
+- Brute Force (Approach 1): Simple but inefficient—use for small datasets.
 
-Two-Pointer (Approach 2): Balanced approach for moderate-sized data.
+- Two-Pointer (Approach 2): Balanced approach for moderate-sized data.
 
-Binary Search (Approach 3): Optimal for large datasets, achieving O(log(min(m,n))) time.
+- Binary Search (Approach 3): Optimal for large datasets, achieving O(log(min(m,n))) time.
 
 Understanding these methods helps choose the right strategy based on problem constraints and performance needs. The binary search approach, though complex, is a favorite in coding interviews for its efficiency!
