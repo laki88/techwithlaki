@@ -8,7 +8,7 @@ beforetoc: "This post shows the problem statement and several solutions for leet
 toc: false
 ---
 
-# [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+### [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
 ## Problem Description
 

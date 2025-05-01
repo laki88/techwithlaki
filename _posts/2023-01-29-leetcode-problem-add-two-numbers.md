@@ -8,7 +8,7 @@ beforetoc: "This post shows the problem statement and the solution for leetcode 
 toc: false
 ---
 
-# [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+### [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 
 
 ## Problem Description
