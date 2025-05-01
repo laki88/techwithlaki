@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Leetcode problem 2 - Add Two Numbers | Problem and solution"
+title:  "Leetcode problem 2 - Add Two Numbers: A Fun Challenge for Linked List Enthusiasts | Problem and solution"
 author: Laki
 categories: [ leetcode, algorithm, linked list, interview questions ]
 image: assets/images/8.jpg
@@ -10,7 +10,7 @@ toc: false
 
 # [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 
-# Add Two Numbers: A Fun Challenge for Linked List Enthusiasts
+
 ## Problem Description
 Imagine you're a math whiz dealing with two enormous numbers—numbers so big that they can't fit into a regular integer variable in programming. But here's the twist: these numbers are given to you in reverse order, with each digit stored as a node in a linked list. Your mission is to add these two giant numbers together, digit by digit, just like you did in elementary school, but with a catch: since they're backwards, you'll have to be extra careful with how you handle the addition. And don't forget about the carry! Once you've added them up, you need to return the result in the same format—a linked list with digits in reverse order.
 

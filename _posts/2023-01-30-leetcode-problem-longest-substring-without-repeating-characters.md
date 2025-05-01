@@ -10,8 +10,6 @@ toc: false
 
 # [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
-# Mastering the Longest Substring Without Repeating Characters Problem
-
 ## Problem Description
 
 Imagine you're a treasure hunter exploring a string, searching for the longest sequence of unique characters. Your mission? Find the longest stretch where no character repeats. For example, in "abcabcbb0", the treasure is "abc"—a sequence of 3 unique characters. Can you write a program to uncover this for any string?

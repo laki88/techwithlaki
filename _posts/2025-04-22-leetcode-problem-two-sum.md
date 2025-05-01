@@ -11,9 +11,8 @@ toc: false
 # [Two Sum](https://leetcode.com/problems/two-sum/)
 
 
-# Solving the Two Sum Problem: A Beginner’s Guide
+## Problem Description
 
-## Problem: Two Sum
 Picture yourself as a detective with a list of numbers and a mystery to solve: you need to find two numbers that add up to a specific target sum. But instead of just naming the numbers, you must pinpoint their exact positions (indices) in the list. There’s only one correct pair, and you can’t use the same number twice. Ready to crack this case?
 
 For example, if your list is `[3, 1, 5, 6]` and the target is `7`, you’d return `[1, 3]` because `1` (at index `1`) and 6 (at index `3`) add up to `7`. This is the heart of the Two Sum problem—a classic coding challenge perfect for sharpening your problem-solving skills.
