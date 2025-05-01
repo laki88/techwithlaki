@@ -106,13 +106,13 @@ public class Solution {
 
 - Pros: Super straightforward — no complex logic needed.
 
-- Cons: Very slow for long strings. With O(n^2) substrings and O(n) time to check each, the time complexity is O(n^3).
+- Cons: Very slow for long strings. With O(n²) substrings and O(n) time to check each, the time complexity is O(n³).
 
 - Example: For "babad", you check "b", "ba", "bab", "baba", "babad", "a", "ab", "aba", etc., finding "bab" or "aba" as the longest.
 
-- Time Complexity: O(n^3)
+- **Time Complexity**: O(n³)
 
-- Space Complexity: O(1)
+- **Space Complexity**: O(1)
 
 ### 2. Expand Around Center
 
@@ -169,7 +169,7 @@ public class Solution {
 
 - Pros: Faster than brute force and easy to code.
 
-- Cons: Still O(n^2) time, as there are O(n) centers, and each expansion can take O(n) time.
+- Cons: Still O(n³) time, as there are O(n) centers, and each expansion can take O(n) time.
 
 - Example: For "babad":
 
@@ -181,9 +181,9 @@ public class Solution {
 
   - The longest is "bab" or "aba".
 
-- Time Complexity: O(n^2)
+- **Time Complexity**: O(n²)
 
-- Space Complexity: O(1)
+- **Space Complexity**: O(1)
 
 ### 3. Dynamic Programming
 
@@ -236,7 +236,7 @@ public class Solution {
 
 - Pros: Organized and reliable.
 
-- Cons: Uses O(n^2) space for the table, which can be a drawback for very long strings.
+- Cons: Uses O(n²) space for the table, which can be a drawback for very long strings.
 
 - Example: For "babad":
 
@@ -244,9 +244,9 @@ public class Solution {
 
     - dp[1][3] = true ("aba"), since s[1] == s[3] and dp[2][2] is true.
 
-- Time Complexity: O(n^2)
+- **Time Complexity**: O(n^2)
 
-- Space Complexity: O(n^2)
+- **Space Complexity**: O(n^2)
 
 ### 4. Manacher’s Algorithm
 
@@ -322,9 +322,9 @@ public class Solution {
 
 - Example: For "babad", the algorithm computes palindrome radii for each position in the preprocessed string, identifying "bab" or "aba" as the longest.
 
-- Time Complexity: O(n)
+- **Time Complexity**: O(n)
 
-- Space Complexity: O(n)
+- **Space Complexity**: O(n)
 
 ### 5. Recursive
 
@@ -367,13 +367,13 @@ public class Solution {
 
 - Pros: Intuitive for learning recursion.
 
-- Cons: As slow as brute force (O(n^3)) and can cause stack overflow for long strings.
+- Cons: As slow as brute force (O(n³)) and can cause stack overflow for long strings.
 
 - Note: This is included for educational purposes but isn’t practical for real-world use.
 
-- Time Complexity: O(n^3)
+- **Time Complexity**: O(n³)
 
-- Space Complexity: O(n) (due to recursion stack)
+- **Space Complexity**: O(n) (due to recursion stack)
 
 ## Summary
 
@@ -415,7 +415,7 @@ The "Longest Palindromic Substring" problem is a fascinating challenge that test
     </tr>
     <tr>
       <td style="border: 1px solid black; padding: 8px;">Recursive</td>
-      <td style="border: 1px solid black; padding: 8px;">O(n^3)</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n³)</td>
       <td style="border: 1px solid black; padding: 8px;">O(n)</td>
       <td style="border: 1px solid black; padding: 8px;">Educational purposes</td>
     </tr>
