@@ -10,50 +10,58 @@ toc: false
 
 # [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 
-## Description
-Given a string s, return the longest palindromic substring in s.
 
-Note that palindrome string is a string which read same as from left to right and right to left.
+### Problem Description
 
-ex: 
-palindrome 
+Picture yourself as a word detective, tasked with finding a hidden treasure in a string of letters. Your mission? Uncover the longest substring that reads the same forwards and backwards—a **palindrome**! For example, in the string `babad`, both `bab` and `aba` are palindromes, each 3 characters long, making them the longest palindromic substrings. In `cbbd`, the longest palindrome is `bb`, with 2 characters. Your goal is to create a function that takes any string and returns its longest palindromic substring.
 
-level
-rotator
+A palindrome is a sequence that’s identical when reversed, like `racecar` or `level`. A substring is a contiguous chunk of characters within the string. The challenge is to find the longest substring that’s also a palindrome.
 
-Non Palindrome
+### Examples
 
-tree
-table
+- Example 1:
+  
+  Input: s = "babad"
+  
+  Output: "bab" (or "aba", both are valid)
+  
+  Explanation: "bab" and "aba" are the longest palindromic substrings, each with length 3.
 
-### Example 1:
 
-Input: s = "babad"
-Output: "bab"
-Explanation: "aba" is also a valid answer.
 
-### Example 2:
+- Example 2:
+  
+  Input: s = "cbbd"
+  
+  Output: "bb"
+  
+  Explanation: "bb" is the longest palindromic substring, with length 2.
 
-Input: s = "cbbd"
-Output: "bb"
- 
-### Constraints:
 
-1 <= s.length <= 1000
-s consist of only digits and English letters.
+### Constraints
+
+- String length is between 1 and 1000.
+
+- The string contains only digits and English letters.
+
+Let’s explore how to crack this puzzle with different approaches!
 
 ## Solutions
 
-### Approach 1: Brute Force
-The brute force approach involves checking all possible substrings to determine if they are palindromic. This method has a high time complexity due to the number of substrings checked.
+There are several ways to solve this problem, each with its own pros and cons. Below, I break down five approaches in a way that’s easy to grasp, even if you’re new to coding. Think of these as different strategies to find the treasure in our word detective game.
 
-Algorithm:
+### 1. Brute Force
 
-Iterate over all possible starting indices of substrings.
+- **Idea**: Like checking every room in a house for treasure, this approach examines every possible substring to see if it’s a palindrome, keeping track of the longest one found.
 
-For each starting index, check all possible ending indices greater than the current maximum length.
+- **How it Works:**
 
-Update the maximum length and substring if a longer palindrome is found.
+  - A string of length n has about n*(n+1)/2 substrings (e.g., for "abc", you check "a", "b", "c", "ab", "bc", "abc").
+
+  - For each substring, verify if it’s a palindrome by comparing it to its reverse.
+
+  - If it’s a palindrome and longer than the current longest, update the record.
+
 
 Java Code:
 
@@ -95,20 +103,32 @@ public class Solution {
     }
 }
 ```
-Complexity Analysis:
 
-Time Complexity: O(n³) - Checking each substring takes O(n) time, with O(n²) substrings.
+- Pros: Super straightforward — no complex logic needed.
 
-Space Complexity: O(1) - No additional space used.
+- Cons: Very slow for long strings. With O(n^2) substrings and O(n) time to check each, the time complexity is O(n^3).
 
-### Approach 2: Expand Around Center
-This method leverages the symmetry of palindromes by expanding around each potential center (both odd and even length).
+- Example: For "babad", you check "b", "ba", "bab", "baba", "babad", "a", "ab", "aba", etc., finding "bab" or "aba" as the longest.
 
-Algorithm:
+- Time Complexity: O(n^3)
 
-For each character, expand around it for odd and even-length palindromes.
+- Space Complexity: O(1)
 
-Track the maximum length palindrome found.
+### 2. Expand Around Center
+
+**Idea:** Imagine each character (or gap between characters) as the center of a potential palindrome. Expand outwards like ripples in a pond, checking if the characters on both sides match.
+
+**How it Works:**
+
+- There are 2n-1 possible centers:
+
+  - n centers for odd-length palindromes (each character).
+
+  - n-1 centers for even-length palindromes (between consecutive characters).
+
+For each center, expand outwards as long as the characters match.
+
+Track the longest palindrome found.
 
 Java Code:
 
@@ -145,24 +165,43 @@ public class Solution {
     }
 }
 ```
-Complexity Analysis:
 
-Time Complexity: O(n²) - Each expansion takes O(n) time for O(n) centers.
 
-Space Complexity: O(1) - No extra space used.
+- Pros: Faster than brute force and easy to code.
 
-### Approach 3: Dynamic Programming
-Using dynamic programming to store subproblem results and avoid redundant checks.
+- Cons: Still O(n^2) time, as there are O(n) centers, and each expansion can take O(n) time.
 
-Algorithm:
+- Example: For "babad":
 
-Create a DP table where dp[i][j] is true if substring s[i...j] is a palindrome.
+  - Center at "b" (index 0): Expands to "b" (length 1).
 
-Initialize single and two-character palindromes.
+  - Center at "a" (index 1): Expands to "aba" (length 3).
 
-Fill the table and track the longest palindrome.
+  - Center at "b" (index 2): Expands to "bab" (length 3).
 
-Java Code:
+  - The longest is "bab" or "aba".
+
+- Time Complexity: O(n^2)
+
+- Space Complexity: O(1)
+
+### 3. Dynamic Programming
+
+**Idea:** Build a table to systematically track which substrings are palindromes, like filling out a detective’s notebook with clues.
+
+**How it Works:**
+
+- Create a 2D table dp where dp[i][j] is true if the substring from index i to j is a palindrome.
+
+- Base cases: Single characters (i == j) are palindromes, and two identical characters (s[i] == s[i+1]) are palindromes.
+
+- For longer substrings, dp[i][j] is true if:
+
+    - s[i] == s[j] (first and last characters match), and
+
+    - dp[i+1][j-1] is true (the substring between is a palindrome).
+
+- Fill the table for all substring lengths, from 1 to n.
 
 ```java
 public class Solution {
@@ -194,20 +233,33 @@ public class Solution {
     }
 }
 ```
-Complexity Analysis:
 
-Time Complexity: O(n²) - Filling the DP table.
+- Pros: Organized and reliable.
 
-Space Complexity: O(n²) - Storing the DP table.
+- Cons: Uses O(n^2) space for the table, which can be a drawback for very long strings.
 
-### Approach 4: Manacher's Algorithm
-An optimized algorithm to find the longest palindromic substring in linear time.
+- Example: For "babad":
 
-Algorithm:
+    - dp[0][0] = true ("b").
 
-Transform the string to handle even and odd lengths uniformly.
+    - dp[1][3] = true ("aba"), since s[1] == s[3] and dp[2][2] is true.
 
-Use a DP array to track palindrome radii and expand efficiently.
+- Time Complexity: O(n^2)
+
+- Space Complexity: O(n^2)
+
+### 4. Manacher’s Algorithm
+
+**Idea**: A super-smart approach that finds palindromes in linear time, like a detective with a high-tech gadget that scans the string efficiently.
+
+**How it Works:**
+
+- Preprocess the string by inserting special characters (e.g., "#" between characters) to handle even-length palindromes (e.g., "babad" becomes "b#a#b#a#d").
+
+- Use an array P where P[i] stores the radius of the palindrome centered at position i.
+
+- Leverage previously computed P values to compute new ones quickly, avoiding redundant checks.
+
 
 Java Code:
 
@@ -263,20 +315,28 @@ public class Solution {
     }
 }
 ```
-Complexity Analysis:
 
-Time Complexity: O(n) - Linear time due to efficient expansions.
+- Pros: The fastest solution, with O(n) time complexity.
 
-Space Complexity: O(n) - Transformed string and DP array.
+- Cons: More complex to understand and implement.
 
-### Approach 5: Recursive (Time Limit Exceeded)
-A highly inefficient recursive approach for educational purposes.
+- Example: For "babad", the algorithm computes palindrome radii for each position in the preprocessed string, identifying "bab" or "aba" as the longest.
 
-Algorithm:
+- Time Complexity: O(n)
 
-Check if the string is a palindrome.
+- Space Complexity: O(n)
 
-Recursively check left and right substrings for longer palindromes.
+### 5. Recursive
+
+**Idea**: Recursively explore all possible substrings to check if they’re palindromes, like a detective retracing steps through every possible path.
+
+**How it Works:**
+
+- For each starting index i, recursively check all substrings starting at i.
+
+- Base case: A single character is a palindrome.
+
+- Recursive case: A substring from i to j is a palindrome if s[i] == s[j] and the substring from i+1 to j-1 is a palindrome.
 
 Java Code:
 
@@ -304,11 +364,64 @@ public class Solution {
     }
 }
 ```
-Note: This approach is not efficient and is included for completeness.
 
-Complexity Analysis:
+- Pros: Intuitive for learning recursion.
 
-Time Complexity: O(n³) - Exponential due to repeated checks.
+- Cons: As slow as brute force (O(n^3)) and can cause stack overflow for long strings.
 
-Space Complexity: O(n) - Recursion stack depth.
+- Note: This is included for educational purposes but isn’t practical for real-world use.
 
+- Time Complexity: O(n^3)
+
+- Space Complexity: O(n) (due to recursion stack)
+
+## Summary
+
+The "Longest Palindromic Substring" problem is a fascinating challenge that tests your string manipulation skills. Here’s a quick overview of the solutions:
+
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid black; padding: 8px;">Approach</th>
+      <th style="border: 1px solid black; padding: 8px;">Time Complexity</th>
+      <th style="border: 1px solid black; padding: 8px;">Space Complexity</th>
+      <th style="border: 1px solid black; padding: 8px;">Best For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">Brute Force</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n³)</td>
+      <td style="border: 1px solid black; padding: 8px;">O(1)</td>
+      <td style="border: 1px solid black; padding: 8px;">Small strings, learning</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">Expand Around Center</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n²)</td>
+      <td style="border: 1px solid black; padding: 8px;">O(1)</td>
+      <td style="border: 1px solid black; padding: 8px;">General use, simplicity</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">Dynamic Programming</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n²)</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n²)</td>
+      <td style="border: 1px solid black; padding: 8px;">Systematic approach</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">Manacher’s Algorithm</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n)</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n)</td>
+      <td style="border: 1px solid black; padding: 8px;">Large strings, efficiency</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">Recursive</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n^3)</td>
+      <td style="border: 1px solid black; padding: 8px;">O(n)</td>
+      <td style="border: 1px solid black; padding: 8px;">Educational purposes</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+For most cases, the `Expand Around Center` approach is a great balance of simplicity and performance. If you’re working with very long strings, `Manacher’s Algorithm` is the go-to for its linear time complexity. The `Brute Force` and `Recursive` approaches are too slow for practical use but help build understanding.

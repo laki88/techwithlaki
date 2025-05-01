@@ -152,6 +152,5 @@ Approach 2 leverages mathematical insights to directly compute the positions of 
 Both approaches efficiently solve the problem with linear time complexity 
 O(n) and linear space complexity 
 O(n), where 
-n
 n is the length of the input string. The choice between the two depends on readability preferences and specific use-case optimizations.
 
