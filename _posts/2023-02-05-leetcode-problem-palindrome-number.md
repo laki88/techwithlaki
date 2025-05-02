@@ -8,7 +8,7 @@ beforetoc: "This post shows the problem statement and several solutions for leet
 toc: false
 ---
 
-# [Palindrome Number](https://leetcode.com/problems/palindrome-number/)
+### [Palindrome Number](https://leetcode.com/problems/palindrome-number/)
 
 ## Description
 Given an integer x, return true if x is a 

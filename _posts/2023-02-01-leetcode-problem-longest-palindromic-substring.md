@@ -8,7 +8,7 @@ beforetoc: "This post shows the problem statement and several solutions for leet
 toc: false
 ---
 
-# [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
+### [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 
 
 ### Problem Description

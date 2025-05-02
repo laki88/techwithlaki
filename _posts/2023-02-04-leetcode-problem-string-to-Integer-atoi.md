@@ -8,7 +8,7 @@ beforetoc: "This post shows the problem statement and several solutions for leet
 toc: false
 ---
 
-# [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
+### [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
 
 ## Description
 

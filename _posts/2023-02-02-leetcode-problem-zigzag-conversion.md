@@ -8,7 +8,7 @@ beforetoc: "This post shows the problem statement and several solutions for leet
 toc: false
 ---
 
-# [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/)
+### [Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/)
 
 ## Description
 

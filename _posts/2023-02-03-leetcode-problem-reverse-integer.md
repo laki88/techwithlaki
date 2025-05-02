@@ -8,7 +8,7 @@ beforetoc: "This post shows the problem statement and several solutions for leet
 toc: false
 ---
 
-# [Reverse Integer](https://leetcode.com/problems/reverse-integer/)
+### [Reverse Integer](https://leetcode.com/problems/reverse-integer/)
 
 # Description
 

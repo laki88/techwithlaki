@@ -3,7 +3,7 @@ layout: post
 title:  "Leetcode problem 4 - Median of Two Sorted Arrays | Problem and solution"
 author: Laki
 categories: [ leetcode, algorithm, interview questions ]
-image: assets/images/2023-01-26-leetcode-problem1-with-solutions/leetcode_meme1.png
+image: assets/images/leetcode-problem-4/1.png
 beforetoc: "This post shows the problem statement and several solutions for leetcode Median of Two Sorted Arrays problem"
 toc: false
 ---
