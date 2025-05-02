@@ -12,15 +12,13 @@ toc: false
 
 ## Description
 
-The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+Picture this: you’re given a string, say "PAYPALISHIRING", and you need to transform it into a zigzag pattern across a specific number of rows. Imagine writing the characters in a way that they bounce up and down like a wave. For instance, with 3 rows, it might look like this:
 ```
 P   A   H   N
 A P L S I I G
 Y   I   R
 ```
-And then read line by line: "PAHNAPLSIIGYIR"
-
-Write the code that will take a string and make this conversion given a number of rows:
+When you read this pattern row by row, you get "PAHNAPLSIIGYIR". Your mission is to create a function that takes a string and the number of rows as input and returns the string converted into this zigzag pattern. It’s like solving a puzzle that makes your code dance!
 
 string convert(string s, int numRows);
 
