@@ -3,7 +3,7 @@ layout: post
 title:  "Leetcode problem 8 - String to Integer (atoi) | Problem and solution"
 author: Laki
 categories: [ leetcode, algorithm, interview questions ]
-image: assets/images/leetcode-problem-8/1.jpg
+image: assets/images/leetcode-problem-8/1.jpeg
 beforetoc: "This post shows the problem statement and several solutions for leetcode String to Integer (atoi) problem"
 toc: false
 ---

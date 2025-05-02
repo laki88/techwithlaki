@@ -3,7 +3,7 @@ layout: post
 title:  "Leetcode problem 6 - Zigzag Conversion | Problem and solution"
 author: Laki
 categories: [ leetcode, algorithm, interview questions ]
-image: assets/images/leetcode-problem-4/1.jpg
+image: assets/images/leetcode-problem-6/1.jpg
 beforetoc: "This post shows the problem statement and several solutions for leetcode Zigzag Conversion problem"
 toc: false
 ---
